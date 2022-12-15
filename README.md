@@ -1,2 +1,2 @@
 # react-graphql-todo
-graphqlのおべんつよう
+graphqlのおべんつよ
