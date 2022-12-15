@@ -1,24 +1,21 @@
-console.log('Try npm run lint/fix!');
+import {ApolloServer, gql} from 'apollo-server';
 
-const longString =
-  'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer ut aliquet diam.';
-
-const trailing = 'Semicolon';
-
-const why = 'am I tabbed?';
-
-export function doSomeStuff(
-  withThis: string,
-  andThat: string,
-  andThose: string[]
-) {
-  //function on one line
-  if (!andThose.length) {
-    return false;
+// GraphQL スキーマの定義
+const typeDefs = gql`
+  type Query {
+    hello: String!
   }
-  console.log(withThis);
-  console.log(andThat);
-  console.dir(andThose);
-  return;
-}
-// TODO: more examples
+`;
+
+// リゾルバーの定義
+const resolvers = {
+  Query: {
+    hello: () => 'world!!!!!',
+  },
+};
+
+// GraphQL サーバーを起動する
+const server = new ApolloServer({typeDefs, resolvers});
+server.listen().then(({url}) => {
+  console.log(`🚀 Server ready at ${url}`);
+});
