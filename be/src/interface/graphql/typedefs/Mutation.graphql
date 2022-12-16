@@ -1,0 +1,5 @@
+type Mutation {
+  addTodo(content: String!): Todo!
+  toggleCompleted(id: ID!): Todo!
+  deleteTodo(id: ID!): Todo!
+}
