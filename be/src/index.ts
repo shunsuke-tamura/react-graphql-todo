@@ -1,18 +1,5 @@
-import {ApolloServer, gql} from 'apollo-server';
-
-// GraphQL スキーマの定義
-const typeDefs = gql`
-  type Query {
-    hello: String!
-  }
-`;
-
-// リゾルバーの定義
-const resolvers = {
-  Query: {
-    hello: () => 'world!!!!!',
-  },
-};
+import {ApolloServer} from 'apollo-server';
+import {typeDefs, resolvers} from './interface/graphql/schema';
 
 // GraphQL サーバーを起動する
 const server = new ApolloServer({typeDefs, resolvers});
