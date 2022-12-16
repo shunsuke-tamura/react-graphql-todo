@@ -1,0 +1,7 @@
+query getTodo {
+  todos {
+    id
+    content
+    completed
+  }
+}
